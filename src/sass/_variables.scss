@@ -14,6 +14,7 @@
   --pink-color: #fe7e73;
   --white-color: #fff;
   --black-color: #000;
+  --red-color: #ff2828;
 
   --header-height: 170px;
   --header-tablet-height: 70px;
@@ -25,6 +26,16 @@
   --mobile-width: 600px;
   --tablet-width: 1024px;
 }
+
+$colors: (
+  'blue': var(--blue-color),
+  'orange': #fbb96b,
+  'pink': #fe7e73,
+  'white': #fff,
+  'black': #000,
+  'main': var(--main-color),
+  'red': #ff2828,
+);
 
 $numbers: (1, 2, 3, 4, 5, 6, 7, 8);
 $mobile-width: 600px;
