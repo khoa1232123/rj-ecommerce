@@ -1,30 +1,30 @@
-import img1 from '../images/slider/slide_1.png';
-import img2 from '../images/slider/slide_2.png';
-import img3 from '../images/slider/slide_3.png';
+import img1 from '../imgs/cay-canh-01.png';
+import img2 from '../imgs/cay-canh-02.png';
+import img3 from '../imgs/cay-canh-03.png';
 
 const sliderShowData = [
   {
-    title: 'Áo dài',
+    title: 'Cây Địa Lan',
     description:
       'orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     img: img1,
-    path: '/catalog/ao-thun-1',
+    path: '/catalog/cay-dia-lan',
     color: 'blue',
   },
   {
-    title: 'Áo ngắn',
+    title: 'Cây vạn thiên thanh',
     description:
       'orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     img: img2,
-    path: '/catalog/ao-thun-2',
+    path: '/catalog/cay-van-thien-thanh',
     color: 'pink',
   },
   {
-    title: 'Polo cổ lọ',
+    title: 'Cây Cau cảnh',
     description:
       'orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
     img: img3,
-    path: '/catalog/ao-thun-3',
+    path: '/catalog/cay-cau-canh',
     color: 'red',
   },
 ];
