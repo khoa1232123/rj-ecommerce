@@ -1,6 +1,6 @@
-import img1 from '../imgs/cay-canh-01.png';
-import img2 from '../imgs/cay-canh-02.png';
-import img3 from '../imgs/cay-canh-03.png';
+import img1 from '../imgs/slider/slider1.png';
+import img2 from '../imgs/slider/slider2.png';
+import img3 from '../imgs/slider/slider3.png';
 
 const sliderShowData = [
   {

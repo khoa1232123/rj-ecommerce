@@ -1,22 +1,22 @@
-import { useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useEffect, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const mainNav = [
   {
-    display: 'Trang chủ',
-    path: '/',
+    label: "Trang chủ",
+    path: "/",
   },
   {
-    display: 'Sản phẩm',
-    path: '/catalog',
+    label: "Sản phẩm",
+    path: "/products",
   },
   {
-    display: 'Phụ kiện',
-    path: '/accessories',
+    label: "Phụ kiện",
+    path: "/accessories",
   },
   {
-    display: 'Liên hệ',
-    path: '/contact',
+    label: "Liên hệ",
+    path: "/contact",
   },
 ];
 
@@ -27,24 +27,24 @@ const Header = () => {
   const headerRef = useRef(null);
 
   useEffect(() => {
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       if (
         document.body.scrollTop > 80 ||
         document.documentElement.scrollTop > 80
       ) {
-        headerRef.current.classList.add('shrink');
+        headerRef.current.classList.add("shrink");
       } else {
-        headerRef.current.classList.remove('shrink');
+        headerRef.current.classList.remove("shrink");
       }
     });
     return () => {
-      window.removeEventListener('scroll');
+      window.removeEventListener("scroll");
     };
   }, []);
 
   const menuLeft = useRef(null);
 
-  const menuToggle = () => menuLeft.current.classList.toggle('active');
+  const menuToggle = () => menuLeft.current.classList.toggle("active");
 
   return (
     <div className="header" ref={headerRef}>
@@ -66,11 +66,11 @@ const Header = () => {
               <div
                 key={index}
                 className={`header__menu__item header__menu__left__item ${
-                  index === activeNav ? 'active' : ''
+                  index === activeNav ? "active" : ""
                 }`}
               >
                 <Link to={item.path}>
-                  <span>{item.display}</span>
+                  <span>{item.label}</span>
                 </Link>
               </div>
             ))}

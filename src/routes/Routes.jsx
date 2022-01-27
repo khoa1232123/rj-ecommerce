@@ -1,15 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch } from "react-router-dom";
 
-import { Cart, Catalog, Home, Product } from '../pages';
+import { Cart, Products, Home, Product } from "../pages";
 
 const Routes = () => {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
-      <Route path="/catalog/:id" component={Product} />
-      <Route path="/catalog" component={Catalog} />
+      <Route path="/product/:id" component={Product} />
+      <Route path="/products" component={Products} />
       <Route path="/cart" component={Cart} />
     </Switch>
   );

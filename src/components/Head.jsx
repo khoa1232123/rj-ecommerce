@@ -1,13 +1,13 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
-const Helmet = (props) => {
+const Head = (props) => {
   document.title = 'SuperK - ' + props.title;
   return <div>{props.children}</div>;
 };
 
-Helmet.propTypes = {
+Head.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-export default Helmet;
+export default Head;

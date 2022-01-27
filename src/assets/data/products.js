@@ -1,26 +1,26 @@
-import product_01 from '../imgs/cay-canh-01.png';
+import product_01 from '../imgs/products/cay-canh-01.png';
 
-import product_02 from '../imgs/cay-canh-02.png';
+import product_02 from '../imgs/products/cay-canh-02.png';
 
-import product_03 from '../imgs/cay-canh-03.png';
+import product_03 from '../imgs/products/cay-canh-03.png';
 
-import product_04 from '../imgs/cay-canh-04.png';
+import product_04 from '../imgs/products/cay-canh-04.png';
 
-import product_05 from '../imgs/cay-canh-05.png';
+import product_05 from '../imgs/products/cay-canh-05.png';
 
-import product_06 from '../imgs/cay-canh-06.png';
+import product_06 from '../imgs/products/cay-canh-06.png';
 
-import product_07 from '../imgs/cay-canh-07.png';
+import product_07 from '../imgs/products/cay-canh-07.png';
 
-import product_08 from '../imgs/cay-canh-08.png';
+import product_08 from '../imgs/products/cay-canh-08.png';
 
-import product_09 from '../imgs/cay-canh-09.png';
+import product_09 from '../imgs/products/cay-canh-09.png';
 
-import product_10 from '../imgs/cay-canh-10.png';
+import product_10 from '../imgs/products/cay-canh-10.png';
 
-import product_11 from '../imgs/cay-canh-11.png';
+import product_11 from '../imgs/products/cay-canh-11.png';
 
-import product_12 from '../imgs/cay-canh-12.png';
+import product_12 from '../imgs/products/cay-canh-12.png';
 
 export const products = [
   {

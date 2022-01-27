@@ -1,6 +1,6 @@
 import React from 'react';
 import sliderShowData from '../assets/data/slider-show';
-import Helmet from '../components/Helmet';
+import Head from '../components/Head';
 import Section, { SectionBody, SectionTitle } from '../components/Section';
 import SliderShow from '../components/SliderShow';
 import policy from '../assets/data/policy';
@@ -12,7 +12,7 @@ import ProductCard from '../components/ProductCard';
 
 const Home = () => {
   return (
-    <Helmet title="Trang chủ">
+    <Head title="Trang chủ">
       {/* slider */}
       <SliderShow data={sliderShowData} control={true} auto timeOut={5000} />
       {/* section */}
@@ -44,7 +44,7 @@ const Home = () => {
           </Grid>
         </SectionBody>
       </Section>
-    </Helmet>
+    </Head>
   );
 };
 
