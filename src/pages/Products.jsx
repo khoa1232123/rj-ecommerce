@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { filterCats, filterSizes } from "../assets/data/filter";
 import { getAllProducts } from "../assets/data/products";
-import { Button, Grid, ProductCard } from "../components";
+import { Button } from "../components";
 import CheckBox from "../components/CheckBox";
 import Head from "../components/Head";
+import InfinityList from "../components/InfinityList";
 
 const Products = () => {
+  const [productFilter, setProductFilter] = useState(getAllProducts());
+
   const initFilter = {
     category: [],
-    color: [],
     size: [],
   };
-
-  const [productFilter, setProductFilter] = useState(getAllProducts());
 
   const [filter, setFilter] = useState(initFilter);
 
@@ -47,11 +47,6 @@ const Products = () => {
           });
           break;
 
-        case "COLOR":
-          const newColor = filter.color.filter((e) => e !== item.path);
-          setFilter({ ...filter, color: newColor });
-          break;
-
         case "SIZE":
           const newSize = filter.size.filter((e) => e !== item.path);
           setFilter({ ...filter, size: newSize });
@@ -63,10 +58,47 @@ const Products = () => {
     }
   };
 
+  const updateProducts = useCallback(() => {
+    let temp = getAllProducts();
+
+    if (filter.category.length > 0) {
+      temp = temp.filter((e) => filter.category.includes(e.catSlug));
+    }
+    if (filter.size.length > 0) {
+      temp = temp.filter((e) => {
+        const check = e.size.find((size) => filter.size.includes(size));
+        return check !== undefined;
+      });
+    }
+    setProductFilter(temp);
+  }, [filter, setProductFilter]);
+
+  useEffect(() => {
+    updateProducts();
+  }, [updateProducts]);
+
+  const clearFilter = () => {
+    setFilter(initFilter);
+  };
+
+  const filterRef = useRef(null);
+
+  const showHideFilter = () => filterRef.current.classList.toggle("active");
+
   return (
     <Head title="Sản phẩm">
       <div className="products">
-        <div className="products__filter">
+        <div className="products__filter" ref={filterRef}>
+          <div className="products__filter__toggle">
+            <Button
+              size="lg"
+              backgroundColor="white"
+              className="btn-close"
+              onClick={() => showHideFilter()}
+            >
+              <i className="bx bx-chevron-left"></i>
+            </Button>
+          </div>
           <div className="products__filter__widget">
             <div className="products__filter__widget__title">
               Danh mục sản phẩm
@@ -77,7 +109,13 @@ const Products = () => {
                   key={index}
                   className="products__filter__widget__content__item"
                 >
-                  <CheckBox label={item.label} />
+                  <CheckBox
+                    label={item.label}
+                    onChange={(input) =>
+                      filterSelect("CATEGORY", input.checked, item)
+                    }
+                    checked={filter.category.includes(item.path)}
+                  />
                 </p>
               ))}
             </div>
@@ -90,23 +128,32 @@ const Products = () => {
                   key={index}
                   className="products__filter__widget__content__item"
                 >
-                  <CheckBox label={item.label} />
+                  <CheckBox
+                    label={item.label}
+                    onChange={(input) =>
+                      filterSelect("SIZE", input.checked, item)
+                    }
+                    checked={filter.size.includes(item.path)}
+                  />
                 </p>
               ))}
             </div>
           </div>
           <div className="products__filter__widget">
             <div className="products__filter__widget__content">
-              <Button size="sm">Xóa bộ lọc</Button>
+              <Button size="sm" onClick={() => clearFilter()}>
+                Xóa bộ lọc
+              </Button>
             </div>
           </div>
         </div>
+        <div className="products__filter__toggle">
+          <Button size="sm" onClick={() => showHideFilter()}>
+            Bộ lọc
+          </Button>
+        </div>
         <div className="products__content">
-          <Grid col={3} mdCol={2} smCol={1} gap={30}>
-            {getAllProducts().map((item, index) => (
-              <ProductCard key={index} product={item} />
-            ))}
-          </Grid>
+          <InfinityList data={productFilter} />
         </div>
       </div>
     </Head>

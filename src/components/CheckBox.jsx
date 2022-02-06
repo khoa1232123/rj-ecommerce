@@ -9,6 +9,8 @@ const CheckBox = ({ label, checked, ...props }) => {
       props.onChange(inputRef.current);
     }
   };
+
+  console.log(checked);
   return (
     <label className="custom-checkbox">
       <input
