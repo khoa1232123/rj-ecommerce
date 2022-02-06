@@ -8,3 +8,4 @@ export { default as PolicyCard } from "./PolicyCard";
 export { default as ProductCard } from "./ProductCard";
 export { default as SliderShow } from "./SliderShow";
 export { default as ProductView } from "./ProductView";
+export { default as ProductViewModal } from "./ProductViewModal";

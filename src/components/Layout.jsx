@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 
-import { BrowserRouter, Route } from 'react-router-dom';
-import Routes from '../routes/Routes';
-import Footer from './Footer';
-import Header from './Header';
+import { BrowserRouter, Route } from "react-router-dom";
+import { Footer, Header, ProductViewModal } from ".";
+import Routes from "../routes/Routes";
 
 const Layout = () => {
   return (
@@ -18,6 +17,7 @@ const Layout = () => {
               </div>
             </div>
             <Footer />
+            <ProductViewModal />
           </div>
         )}
       />

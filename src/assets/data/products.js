@@ -24,6 +24,7 @@ import product_12 from "../imgs/products/cay-canh-12.png";
 
 export const products = [
   {
+    id: 1,
     title: "Cây mần trầu",
     price: "189",
     img: product_01,
@@ -34,6 +35,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 2,
     title: "Cây thủy tiên",
     price: "189",
     img: product_02,
@@ -45,6 +47,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 3,
     title: "Cây cau",
     price: "189",
     img: product_03,
@@ -55,6 +58,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 3,
     title: "Cây địa lan",
     price: "189",
     img: product_04,
@@ -65,6 +69,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 4,
     title: "Cây bằng lăng",
     price: "189",
     img: product_05,
@@ -75,6 +80,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 5,
     title: "Cây xương rồng",
     price: "189",
     img: product_06,
@@ -85,6 +91,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 6,
     title: "Cây măng cụt",
     price: "189",
     img: product_07,
@@ -96,6 +103,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 7,
     title: "Cây Phong lan",
     price: "189",
     img: product_08,
@@ -107,6 +115,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 8,
     title: "Cây khế",
     price: "189",
     img: product_09,
@@ -118,6 +127,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 9,
     title: "Cây hoa hồng",
     price: "189",
     img: product_10,
@@ -129,6 +139,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 10,
     title: "Cây cúc họa mi",
     price: "189",
     img: product_11,
@@ -140,6 +151,7 @@ export const products = [
     size: ["s", "m", "l", "xl"],
   },
   {
+    id: 11,
     title: "Cây hoa bỏng",
     price: "189",
     img: product_12,
@@ -162,4 +174,17 @@ export const getProducts = (count) => {
   const start = Math.floor(Math.random() * (max - min) + min);
 
   return products.slice(start, start + count);
+};
+
+export const getCartItemsDetail = (cartItems) => {
+  let res = [];
+  if (cartItems.length > 0) {
+    cartItems.forEach((e) => {
+      res.push({
+        ...e,
+        product: getProductBySlug(e.slug),
+      });
+    });
+  }
+  return res;
 };

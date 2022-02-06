@@ -3,8 +3,20 @@ import PropTypes from "prop-types";
 import { numberWithCommas } from "../utils";
 import { Button } from ".";
 import { withRouter } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addItem } from "../redux/cart/cartItemsSlice";
 
 const ProductView = ({ product, ...props }) => {
+  const dispatch = useDispatch();
+  if (product === undefined) {
+    product = {
+      title: "",
+      color: [],
+      price: 0,
+      size: [],
+      description: "",
+    };
+  }
   const { title, img, price, description } = product;
 
   const [color, setColor] = useState(undefined);
@@ -33,12 +45,31 @@ const ProductView = ({ product, ...props }) => {
 
   const addToCart = () => {
     if (check()) {
-      console.log("abc");
+      dispatch(
+        addItem({
+          id: product.id,
+          slug: product.slug,
+          color: color,
+          size: size,
+          quantity: quantity,
+          price: price,
+        })
+      );
     }
   };
 
   const goToCart = () => {
     if (check()) {
+      dispatch(
+        addItem({
+          id: product.id,
+          slug: product.slug,
+          color: color,
+          size: size,
+          quantity: quantity,
+          price: price,
+        })
+      );
       props.history.push("/cart");
     }
   };
@@ -106,7 +137,7 @@ const ProductView = ({ product, ...props }) => {
             </div>
           </div>
           <div className="product__content__submit">
-            <Button onClick={() => addToCart()}>Thêm vào giỏ hàng</Button>
+            <Button onClick={() => addToCart()}>Thêm vào giỏ</Button>
             <Button onClick={() => goToCart()}>Mua ngay</Button>
           </div>
         </div>
@@ -123,7 +154,7 @@ const ProductView = ({ product, ...props }) => {
 };
 
 ProductView.propTypes = {
-  product: PropTypes.object.isRequired,
+  product: PropTypes.object,
 };
 
 export default withRouter(ProductView);

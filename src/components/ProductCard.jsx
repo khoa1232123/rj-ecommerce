@@ -1,11 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import Button from './Button';
+import PropTypes from "prop-types";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { set } from "../redux/product-modal/productModalSlice";
+import Button from "./Button";
 
 const ProductCard = ({ product }) => {
   const { img, title, price, slug } = product;
-
+  const dispatch = useDispatch();
   return (
     <div className="product-card">
       <Link to={`/product/${slug}`}>
@@ -19,7 +21,12 @@ const ProductCard = ({ product }) => {
         </h3>
         <span className="product-card__price">{price}k</span>
         <div className="product-card__btn">
-          <Button size="sm" icon="bx bx-cart" animate>
+          <Button
+            size="sm"
+            icon="bx bx-cart"
+            animate
+            onClick={() => dispatch(set(slug))}
+          >
             Thêm vào giỏ hàng
           </Button>
         </div>
